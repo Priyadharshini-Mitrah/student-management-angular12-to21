@@ -1,0 +1,15 @@
+<div *ngIf="student; else notFound">
+  <h2>Student Detail</h2>
+  <p><strong>ID:</strong> {{student.id}}</p>
+  <p><strong>Name:</strong> {{student.name}}</p>
+  <p><strong>Email:</strong> {{student.email}}</p>
+  <p><strong>Age:</strong> {{student.age}} ({{student.age | age}})</p>
+  <p><strong>Course:</strong> {{student.course}}</p>
+
+  <p-button label="Back to List" (click)="goBack()" icon="pi pi-arrow-left"></p-button>
+</div>
+
+<ng-template #notFound>
+  <p>Student not found.</p>
+  <p-button label="Back" (click)="goBack()"></p-button>
+</ng-template>

@@ -1,0 +1,55 @@
+
+<div class="card p-fluid" style="max-width: 600px; margin: 2rem auto; padding: 2rem;">
+
+  <h2>{{ isEditMode ? 'Edit Student' : 'Add New Student' }}</h2>
+
+  <form [formGroup]="studentForm" (ngSubmit)="save()" class="p-formgrid p-grid">
+
+    <div class="p-field p-col-12 p-md-6">
+      <span class="p-float-label">
+        <input id="name" type="text" pInputText formControlName="name" />
+        <label for="name">Name</label>
+      </span>
+      <small *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched" class="p-error block">
+        Name is required.
+      </small>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6">
+      <span class="p-float-label">
+        <input id="email" type="email" pInputText formControlName="email" />
+        <label for="email">Email</label>
+      </span>
+      <small *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched" class="p-error block">
+        Valid email is required.
+      </small>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6">
+      <span class="p-float-label">
+        <input id="age" type="number" pInputText formControlName="age" />
+        <label for="age">Age</label>
+      </span>
+      <small *ngIf="studentForm.get('age')?.invalid && studentForm.get('age')?.touched" class="p-error block">
+        Age is required (minimum 16).
+      </small>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6">
+      <span class="p-float-label">
+        <input id="course" type="text" pInputText formControlName="course" />
+        <label for="course">Course</label>
+      </span>
+      <small *ngIf="studentForm.get('course')?.invalid && studentForm.get('course')?.touched" class="p-error block">
+        Course is required.
+      </small>
+    </div>
+
+    <div class="p-field p-col-12" style="margin-top: 2rem;">
+      <p-button type="submit" label="Save" [disabled]="studentForm.invalid"></p-button>
+      <p-button label="Cancel" (click)="cancel()" class="p-button-secondary p-ml-3"></p-button>
+    </div>
+
+  </form>
+
+</div>
