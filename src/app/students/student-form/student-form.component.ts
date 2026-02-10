@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from 'src/app/shared/services/student.service';
 
 @Component({
-  selector: 'app-student-form',
-  templateUrl: './student-form.component.html',
-  styleUrls: ['./student-form.component.scss']
+    selector: 'app-student-form',
+    templateUrl: './student-form.component.html',
+    styleUrls: ['./student-form.component.scss'],
+    standalone: false
 })
 export class StudentFormComponent implements OnInit {
 studentForm: FormGroup;
